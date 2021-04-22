@@ -1,8 +1,9 @@
 package lab13.hollywood;
 
-import pl.altkom.hollywood.model.Actor;
-import pl.altkom.hollywood.model.Movie;
-import pl.altkom.hollywood.model.Sex;
+
+import lab13.hollywood.model.Actor;
+import lab13.hollywood.model.Movie;
+import lab13.hollywood.model.Sex;
 
 import java.util.Arrays;
 import java.util.List;
