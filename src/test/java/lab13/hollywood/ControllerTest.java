@@ -3,9 +3,11 @@ package lab13.hollywood;
 
 import lab13.hollywood.model.Actor;
 import lab13.hollywood.model.Movie;
+import lab13.hollywood.model.Sex;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -50,6 +52,13 @@ class ControllerTest {
         actors.forEach(System.out::println);
         System.out.println(actors.size());
         assertEquals(actors.size(), 5);
+    }
+
+    @Test
+    public void shouldReturnMap() {
+        Map<Sex, List<Actor>> actrosMap = controller.getMapStartsWithJandK();
+        actrosMap.values().forEach(System.out::println);
+
     }
 
 

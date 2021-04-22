@@ -37,7 +37,8 @@ public class Controller {
                 .map(Movie::getCast)
                 .flatMap(Collection::stream)
                 .filter(a -> a.getSex().equals(Sex.F))
-                .sorted()
+                .sorted(Comparator.comparing((Actor a) -> a.getName()
+                        .split(" ")[1]))
                 .collect(Collectors.toList());
         return actors;
     }
@@ -76,12 +77,13 @@ public class Controller {
     public List<Actor> getActortsStartsWithJandK() {
         List<Actor> actorList = Provider.getActors().stream()
                 .filter(n -> n.getName().startsWith("J") || n.getName().startsWith("K"))
-                .sorted(Comparator.comparing())
+                .sorted(Comparator.comparing(
+                        (Actor a) -> a.getSex().toString()))
                 .collect(Collectors.toList());
         return actorList;
     }
 
-    public Map<Sex, List<Actor>> getFemaleStartsWithJandK() {
+    public Map<Sex, List<Actor>> getMapStartsWithJandK() {
         Map<Sex, List<Actor>> mapActors = new HashMap<>();
         List<Actor> females = getSexActor(Sex.F);
         List<Actor> males = getSexActor(Sex.M);
@@ -93,7 +95,8 @@ public class Controller {
     private List<Actor> getSexActor(Sex sex) {
         return getActortsStartsWithJandK().stream()
                 .filter(a -> a.getSex().equals(sex))
-                .sorted(n -> n.getName().)
+                .sorted(Comparator.comparing(
+                        (Actor a) -> a.getName().split(" ")[1]))
                 .collect(Collectors.toList());
     }
 
