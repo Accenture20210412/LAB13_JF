@@ -14,23 +14,23 @@ public class Controller {
 
 
     public List<Actor> getMaleActors() {
-        List<Actor> activMaleActors = Provider.getMovies()
+        List<Actor> activeMaleActors = Provider.getMovies()
                 .stream()
                 .map(Movie::getCast)
                 .flatMap(Collection::stream)
                 .distinct()
                 .filter(a -> a.getSex().equals(Sex.M))
                 .collect(Collectors.toList());
-        return activMaleActors;
+        return activeMaleActors;
     }
-    public void printAndCoutActiveMaleActors(){
+    public void printAndCountActiveMaleActors(){
         System.out.println("Male active actors list: ");
         List<Actor> actors = getMaleActors();
         actors.forEach(System.out::println);
         System.out.println("Count : " + actors.stream().count());
     }
 
-    public List<Actor> getActresfromMovie(int movieNumber) {
+    public List<Actor> getActressesFromMovie(int movieNumber) {
         List<Actor> actors = Provider.getMovies()
                 .stream()
                 .filter(m -> m.getNr() == movieNumber)

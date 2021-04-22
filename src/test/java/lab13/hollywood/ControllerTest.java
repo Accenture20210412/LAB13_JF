@@ -17,17 +17,17 @@ class ControllerTest {
 
     @Test
     public void shouldReturnActiveMaleActors() {
-        controller.printAndCoutActiveMaleActors();
+        controller.printAndCountActiveMaleActors();
     }
 
     @Test
-    public void shouldReturnActresFromMovie3() {
-        controller.getActresfromMovie(3)
+    public void shouldReturnActressFromMovie3() {
+        controller.getActressesFromMovie(3)
                 .forEach(System.out::println);
     }
 
     @Test
-    public void shouldReturnCorectTitle() {
+    public void shouldReturnCorrectTitle() {
         String title1 = controller.getMovieTitleDirectedBy(
                 "Nancy Meyers", 1);
         String title2 = controller.getMovieTitleDirectedBy(
