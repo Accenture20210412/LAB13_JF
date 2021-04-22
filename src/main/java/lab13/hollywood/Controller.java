@@ -5,8 +5,7 @@ import lab13.hollywood.model.Actor;
 import lab13.hollywood.model.Movie;
 import lab13.hollywood.model.Sex;
 
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 
@@ -77,9 +76,25 @@ public class Controller {
     public List<Actor> getActortsStartsWithJandK() {
         List<Actor> actorList = Provider.getActors().stream()
                 .filter(n -> n.getName().startsWith("J") || n.getName().startsWith("K"))
-                .sorted()
+                .sorted(Comparator.comparing())
                 .collect(Collectors.toList());
         return actorList;
+    }
+
+    public Map<Sex, List<Actor>> getFemaleStartsWithJandK() {
+        Map<Sex, List<Actor>> mapActors = new HashMap<>();
+        List<Actor> females = getSexActor(Sex.F);
+        List<Actor> males = getSexActor(Sex.M);
+        mapActors.put(Sex.F, females);
+        mapActors.put(Sex.M, males);
+        return mapActors;
+    }
+
+    private List<Actor> getSexActor(Sex sex) {
+        return getActortsStartsWithJandK().stream()
+                .filter(a -> a.getSex().equals(sex))
+                .sorted(n -> n.getName().)
+                .collect(Collectors.toList());
     }
 
 
