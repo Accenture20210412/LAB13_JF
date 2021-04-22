@@ -1,6 +1,7 @@
 package lab13.hollywood;
 
 
+import lab13.hollywood.model.Actor;
 import lab13.hollywood.model.Movie;
 import org.junit.jupiter.api.Test;
 
@@ -43,4 +44,11 @@ class ControllerTest {
         assertEquals(movies.size(), 1);
     }
 
+    @Test
+    public void shouldReturnNamesStartsWithKandJ() {
+        List<Actor> actors = controller.getActortsStartsWithJandK();
+        actors.forEach(System.out::println);
+        System.out.println(actors.size());
+        assertEquals(actors.size(), 5);
+    }
 }

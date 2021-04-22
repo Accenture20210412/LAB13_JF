@@ -4,13 +4,10 @@ package lab13.hollywood;
 import lab13.hollywood.model.Actor;
 import lab13.hollywood.model.Movie;
 import lab13.hollywood.model.Sex;
-import org.junit.jupiter.api.Test;
 
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 
 public class Controller {
@@ -75,6 +72,14 @@ public class Controller {
                         .noneMatch(a -> a.getSex().equals(Sex.F)))
                 .collect(Collectors.toList());
             return maleMovies;
+    }
+
+    public List<Actor> getActortsStartsWithJandK() {
+        List<Actor> actorList = Provider.getActors().stream()
+                .filter(n -> n.getName().startsWith("J") || n.getName().startsWith("K"))
+                .sorted()
+                .collect(Collectors.toList());
+        return actorList;
     }
 
 
